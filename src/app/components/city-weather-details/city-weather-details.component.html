@@ -1,0 +1,54 @@
+<div class="content" role="main">
+  <div class="card-container">
+    <div class="loader" *ngIf="isLoading"></div>
+    <div *ngIf="!isLoading">
+     Weather Detail for City <b> {{ cityName }} </b>
+       <h1 *ngFor="let value of report.weather">
+       <b>
+        {{value.main}} - {{value.description}}
+       </b>
+       </h1>
+    <div class="card-container">
+      <a class="card1">
+        <h2>Coordinates</h2>
+        <div>
+          Latitude : {{report.coord.lat}}
+        </div>
+        <div>
+          Longitude : {{report.coord.lon}}
+          </div>
+          ------------
+        <div> Pressure : {{report.main.pressure}}</div>
+        <div> Humidity : {{report.main.humidity}}</div>
+      </a>
+      <a class="card1">
+        <h2>Temperature</h2>
+        <div> Current : {{report.main.temp}}</div>
+        <div> Feels Like : {{report.main.feels_like}}</div>
+        <div> Min. : {{report.main.temp_min}}</div>
+        <div> Max : {{report.main.temp_max}}</div>
+      </a>
+      <a class="card1">
+        <h2>Wind</h2>
+        <div> Speed : {{report.wind.speed}}</div>
+        <div> Degrees : {{report.wind.deg}}</div>
+        <h2>Clouds : {{report.clouds.all}}</h2>
+      </a>
+      <a class="card1">
+        <h2>SUN</h2>
+        <div> Sunset : {{report.sys.sunset}}</div>
+        <div> Sunrise : {{report.sys.sunrise}}</div>
+        -------------
+        <div> Country : {{report.sys.country}}</div>
+        <div> Visibility from : {{report.visibility}}</div>
+      </a>
+    </div>
+      <div style="margin: 10px;" >
+        <a href="" (click)="goToHome()">
+          <span>Go Back</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
